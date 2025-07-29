@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# WARNING: 脚本拷贝torrent文件的目标地址在下载文件的路径下，所以如果有开启监视文件夹功能，请禁止递归子目录，否则_Torrent文件夹内拷贝到的torrent文件会被再次监视。
+
+
+
 # echo "args num: $#, all args: $@" > /vol1/@appshare/qBittorrent/test.log
 
 # torrent_name=$1 #%N
@@ -36,7 +40,9 @@ logE() {
 
 log "-------------------------------------------Start running script...-----------------------------------------------"
 
+# BT_backup目录
 bt_backup="/vol1/@appcenter/qBittorrent/qBittorrent_conf/data/BT_backup"
+# 在torrent_savepath路径下创建用来拷贝torrent文件的文件夹名称，也就是目标文件夹
 torrent_dir_name="_Torrents"
 
 # 扩充新的必须参数时，记得检测参数的合法性
